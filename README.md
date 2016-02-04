@@ -1,5 +1,5 @@
 # Timestamp Microservice
-Demo: (http://aqueous-sands-96599.herokuapp.com/)
+Demo: http://aqueous-sands-96599.herokuapp.com/
 
 #### User Story
 
