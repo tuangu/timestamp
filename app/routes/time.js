@@ -13,9 +13,12 @@ module.exports = function (app) {
         });
     app.route('/api/whoami')
         .get(function (req, res) {
+            console.log(req.ips);
+            console.log(typeof req.get('Accept-Language'));
+            console.log(typeof req.get('User-Agent'));
             res.send({
-                "ipaddress": req.ip,
-                "language": req.get('Accept-Language'),
+                "ipaddress": req.headers["X-Forwarded-For"] || req.headers["x-forwarded-for"] || req.client.remoteAddress,
+                "language": req.acceptsLanguages()[0],
                 "software": req.get('User-Agent')
             });    
         });
