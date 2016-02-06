@@ -11,4 +11,12 @@ module.exports = function (app) {
         .get(function (req, res) {
             res.sendFile(process.cwd() + '/public/index.html');
         });
+    app.route('/api/whoami')
+        .get(function (req, res) {
+            res.send({
+                "ipaddress": req.ip,
+                "language": req.get('Accept-Language'),
+                "software": req.get('User-Agent')
+            });    
+        });
 }
